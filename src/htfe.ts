@@ -3,6 +3,7 @@ import { IVariable } from './interface/variable';
 import { ForgotPasswordOne } from './templates/ForgotPasswordOne';
 import { ISection } from './interface/section';
 import { TemplateTypes } from './templates/TemplateTypes';
+import { VerifyEmailOne } from './templates/VerifyEmailOne';
 
 const htfe = (payload: IPayload) => {
     let editedPayload = convertVariablesToItem(payload);
@@ -10,6 +11,8 @@ const htfe = (payload: IPayload) => {
     switch (payload.template.type) {
         case TemplateTypes.forgot_password_one:
             return ForgotPasswordOne(payload);
+        case TemplateTypes.verify_email_one:
+            return VerifyEmailOne(payload);
         default:
             throw Error('Unsportted type. Please check types');
     }
